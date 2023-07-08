@@ -1,9 +1,15 @@
 # 以下を「cdle15_app.py」に書き込み
 import streamlit as st
 import openai
+import os
+
 # import secret_keys  # 外部ファイルにAPI keyを格納
 
+# デプロイの場合
 openai.api_key = st.secrets.OpenAIAPI.openai_api_key
+
+# ローカルの場合
+# openai.api_key = os.environ.get('OPENAI_API_KEY')
 
 # st.session_stateを使いメッセージのやりとりを保存
 if "messages" not in st.session_state:
@@ -35,7 +41,7 @@ def communicate():
 
 # ユーザーインターフェイスの構築
 st.title("ChatGPT アプリ")
-st.image("cdle15_app_photo.png")
+# st.image("cdle15_app_photo.png")
 st.write(" ◤◢◤◢　個人情報や機密情報は入力しないでください　◤◢◤◢  ")
 
 user_input = st.text_input("▼ プロンプトを入力してください。", key="user_input", on_change=communicate)
