@@ -6,10 +6,10 @@ import os
 # import secret_keys  # 外部ファイルにAPI keyを格納
 
 # デプロイの場合
-# openai.api_key = st.secrets.OpenAIAPI.openai_api_key
+openai.api_key = st.secrets.OpenAIAPI.openai_api_key
 
 # ローカルの場合
-openai.api_key = os.environ.get('OPENAI_API_KEY')
+# openai.api_key = os.environ.get('OPENAI_API_KEY')
 
 # st.session_stateを使いメッセージのやりとりを保存
 if "messages" not in st.session_state:
